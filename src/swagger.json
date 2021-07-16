@@ -1,0 +1,44 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Desafio Introdução ao SOLID",
+    "description": "Desafio Introdução ao SOLID",
+    "version": "1.0.0",
+    "contact": {
+      "email": "bruno@gmail.com"
+    }
+  },
+  "paths": {
+    "/users": {
+      "post": {
+        "tags": ["User"],
+        "summary" : "Create user",
+        "description": "Creates a new user",
+        "requestBody": {
+          "content":{"application/json":{
+            "schema":{
+              "type":"object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email":{
+                  "type": "string"
+                }
+              },
+              "example": {
+                "name": "Bruno Ricardo",
+                "email":"bruno@gmail.com"
+              }
+            }
+          }
+        }
+        },
+        "responses": {
+          "201": {"description":"Sucess"},
+          "400": {"description":"A user with the same email adress already exists"}
+        }
+      }
+    }
+  }
+}
